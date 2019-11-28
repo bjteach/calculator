@@ -27,7 +27,7 @@ public class CView
 		_frame.getContentPane().add(_display, BorderLayout.NORTH);
 
 		// Create buttons
-		String[] data = new String[] {"7", "8", "9", "/", "4", "5", "6", "*", "1", "2", "3", "-", "0", "-", "C", "+"};
+		String[] data = new String[] {"7", "8", "9", "/", "4", "5", "6", "*", "1", "2", "3", "-", "0", "=", "C", "+"};
 		_buttons = new JPanel();
 		_buttons.setLayout(new GridLayout(4, 4));
 		for (int i = 0; i < 16; i++)
@@ -44,5 +44,10 @@ public class CView
 	{
 		// Show window
 		_frame.setVisible(true);
+	}
+
+	public void display(int value)
+	{
+		_display.setText(String.format("%d", value));
 	}
 }
