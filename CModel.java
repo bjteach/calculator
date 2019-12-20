@@ -2,6 +2,6 @@ package Calculator;
 
 public class CModel
 {
-	public int operand;
-	public string operator;
+	public long operand;
+	public String operator;
 }
