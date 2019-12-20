@@ -20,17 +20,30 @@ public class CView
 		_frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		// Create display 
-		_display = new JLabel("0");
+        _display = new JLabel("0", SwingConstants.RIGHT);
+        _display.setBackground(Color.YELLOW);
+        _display.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        _display.setFont(new Font("Serif", Font.PLAIN, 40));
+        _frame.add(_display, BorderLayout.NORTH);
+        
 
-		// Create buttons
+        // Create buttons
+        String[] data = new String[]{"7", "8", "9", "/", "4", "5", "6", "*", "1", "2", "3", "-", "0", "=", "C", "+"};
 		_buttons = new JPanel();
 		_buttons.setLayout(new GridLayout(4, 4));
 		for (int i = 0; i < 16; i++)
 		{
-			JButton button = new JButton();
+            JButton button = new JButton(data[i]);
+            button.addActionListener(listener);
 			_buttons.add(button);
-		}
+        }
+        _frame.add(_buttons, BorderLayout.CENTER);
 	}
+
+    public void display(long num)
+    {
+        _display.setText(String.format("%d", num));
+    }
 
 	public void show() 
 	{
